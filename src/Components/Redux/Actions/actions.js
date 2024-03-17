@@ -114,7 +114,7 @@ export const filterProducts = createAsyncThunk(
 export const checkoutUser = createAsyncThunk(
   "checkout/checkoutUser",
   async ({token,cart,demoItems,user},{rejectWithValue}) => {
-          const cartItems = new Array()
+          const cartItems = []
 
           for(var i=0; i<demoItems.length;i++) {
               var item ={

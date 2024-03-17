@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import {Link, useNavigate} from "react-router-dom"
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {addNewProduct, registerUser} from '../Redux/Actions/actions';
+import {addNewProduct} from '../Redux/Actions/actions';
 
 function AddProduct() {
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+   
     const auth = useSelector((store) => store.users.auth)
     const{status} = useSelector((store) => store.product.productList)
   const [formData, setFormData] = useState({

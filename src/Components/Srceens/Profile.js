@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import {Link, useNavigate} from "react-router-dom"
+import { useState } from 'react';
+import {useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
-import {registerUser, updateUser} from '../Redux/Actions/actions';
+import {updateUser} from '../Redux/Actions/actions';
 import { logoutUser } from '../Redux/Slices/authSlice';
 import { toast } from 'react-toastify';
 

@@ -8,7 +8,7 @@ function OrderDetail() {
     const dispatch = useDispatch()
     const params = useParams();
     const paramId = params.id;
-    const {order,loading,error} = useSelector((store)=> store.order?.orderById)
+    const {order,loading} = useSelector((store)=> store.order?.orderById)
     console.log("ordee",order)
 
     useEffect(()=>{

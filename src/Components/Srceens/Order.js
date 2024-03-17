@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchOrdersByUser } from "../Redux/Actions/actions";
 import Shimmer from "../Shimmers/Shimmer";
-import { Link } from "react-router-dom";
 
 function Order() {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const user = useSelector((store)=> store.users.auth)
-    const {orders,loading,error}= useSelector((store) => store.order.ordersByuser)
+    const {orders,loading}= useSelector((store) => store.order.ordersByuser)
    
     useEffect(()=>{
         dispatch(fetchOrdersByUser(user._id))

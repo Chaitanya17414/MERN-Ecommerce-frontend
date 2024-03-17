@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { addItem, clearCart, decereaseCart, getTotal, removeItem } from "../Redux/Slices/cartSlice";
 import { useEffect } from "react";
-import {loadStripe} from '@stripe/stripe-js';
 import PayButton from "../PayButton";
 
 function Cart() {
