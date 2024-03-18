@@ -27,7 +27,7 @@ function TotalProducts() {
                     <p>Delete</p>
                 </div>
             </div>
-            {status === 'pending' && <Shimmer />}
+            {status === 'pending' ? <Shimmer />:(
             <div className="">
                 {products && products.map((item)=>{
                     return(
@@ -52,6 +52,7 @@ function TotalProducts() {
                     )
                 })}
             </div>
+            )}
         </div>
      );
 }

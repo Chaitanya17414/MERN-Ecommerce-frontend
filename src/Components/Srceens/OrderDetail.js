@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import Shimmer from "../Shimmers/Shimmer";
 import { Link, useParams } from "react-router-dom";
 import { fetchOrderById } from "../Redux/Actions/actions";
 import { useEffect } from "react";
+import PdpShimmer from "../Shimmers/PdpShimmer";
 
 function OrderDetail() {
     const dispatch = useDispatch()
@@ -17,6 +17,7 @@ function OrderDetail() {
 
     return ( 
         <>
+         {loading ? <PdpShimmer />:(
         <div className="container mx-auto">
             <div className="flex gap-3 items-center">
                 <Link to="/order"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -24,8 +25,6 @@ function OrderDetail() {
                 </svg></Link>
                 <h2 className="text-2xl text-left my-[30px]">Order Details</h2>
             </div>
-           
-            {loading && <Shimmer />}
             <div className="grid grid-cols-2 gap-4">
                 <div className="shadow-lg rounded-xl bg-white">
                     <h1 className="text-xl font-medium p-4 border-b-slate-200 ">Order items</h1>
@@ -67,7 +66,7 @@ function OrderDetail() {
                    </div>      
                 </div>
             </div>
-        </div>
+        </div>)}
         <div className="shadow-lg bg-white text-left my-4">
             <div className="container mx-auto p-4"> 
                 <h1 className="text-xl font-medium">Replacement Conditions</h1>
@@ -79,6 +78,7 @@ function OrderDetail() {
                 </div>
             </div>
         </div>
+        
         </>
      );
 }

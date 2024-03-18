@@ -4,6 +4,8 @@ import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchAllProducts} from "../Redux/Actions/actions";
 import { addItem} from "../Redux/Slices/cartSlice";
+import Filter from "../Filter";
+import PlpShimmer from "../Shimmers/PlpShimmer";
 
 function ProductsListing() {
     const dispatch= useDispatch(); 
@@ -16,16 +18,15 @@ function ProductsListing() {
     const handleAddToCart = (product) => {
         dispatch(addItem(product));
     }
-
-    if (status === 'loading') {
-      return <div>Loading...</div>;
-    }
-  
+    
     if (status === 'failed') {
       return <div>Error: {error}</div>;
     }
     return ( 
+        <div className="mt-10">
+        <Filter />
         <div className="container mx-auto">
+            {status === 'loading' ? <PlpShimmer />:(
             <div className="grid grid-cols-4 gap-4">
                 {products?.length >0 ?(products.map((items)=>{
                     return(
@@ -59,7 +60,9 @@ function ProductsListing() {
                     <div className="my-8 text-red-500 text-xl text-center">No Products Found</div>
                 )}
             </div>
+            )}
         </div>
+    </div>
      );
 }
 

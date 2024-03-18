@@ -29,6 +29,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
    dispatch(loginUser(formData))
+   auth.loginError = ""
   };
 
   return (

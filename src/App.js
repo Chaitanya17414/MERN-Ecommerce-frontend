@@ -23,6 +23,7 @@ import UserList from './Components/Srceens/UserList';
 import TotalProducts from "./Components/Srceens/TotalProducts"
 import AddProduct from './Components/Srceens/AddProduct';
 import OrdersList from './Components/Srceens/OrdersList';
+import ProductsListing from './Components/Srceens/ProductsListing';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/products/" element={<ProductsListing />} />
           <Route exact path="/product/:id" element={<ProductDetail />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/register" element={<Register />} />

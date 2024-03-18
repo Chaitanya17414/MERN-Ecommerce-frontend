@@ -7,7 +7,6 @@ function Home() {
     return ( 
         <div>
             <CarouselCustomNavigation/>
-            <Filter />
             <ProductsListing />
         </div>
      );
