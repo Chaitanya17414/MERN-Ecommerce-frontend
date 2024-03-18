@@ -36,9 +36,9 @@ function TotalProducts() {
                                 <div className="w-[100px] h-20 overflow-hidden m-2">
                                     <img src={item.thumbnail} alt="cartimage" className="rounded-lg object-contain shadow-xl mx-auto w-full h-full"/>
                                 </div>
-                                <div className=" flex items-center align-center">
+                                <div className="grid items-center align-center text-ellipsis overflow-hidden ...">
                                     <Link to={`/product/${item._id}`}>
-                                    <p className="text-md text-gray-500">{item.title}({item.brand})</p></Link>
+                                    <p className="text-md text-gray-500 ">{item.title}({item.brand})</p></Link>
                                 </div>
                             </div>
                                 <p className="flex items-center text-center">&#8377;{item.price}</p>

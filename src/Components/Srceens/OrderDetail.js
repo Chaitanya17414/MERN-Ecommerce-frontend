@@ -18,14 +18,14 @@ function OrderDetail() {
     return ( 
         <>
          {loading ? <PdpShimmer />:(
-        <div className="container mx-auto">
+        <div className="xl:container xl:mx-auto mx-4">
             <div className="flex gap-3 items-center">
                 <Link to="/order"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </svg></Link>
                 <h2 className="text-2xl text-left my-[30px]">Order Details</h2>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:block">
                 <div className="shadow-lg rounded-xl bg-white">
                     <h1 className="text-xl font-medium p-4 border-b-slate-200 ">Order items</h1>
                     {order?.orderItems && order?.orderItems.map((items)=>{
@@ -38,7 +38,7 @@ function OrderDetail() {
                         )
                     })}
                 </div>
-                <div className="shadow-lg rounded-xl bg-white text-right">
+                <div className="shadow-lg rounded-xl bg-white text-right sm:mt-3">
                     <div className="">
                         <h1 className="text-xl font-medium p-4 border-b-2 ">Order Details</h1>
                         <div className="pr-4">
@@ -68,7 +68,7 @@ function OrderDetail() {
             </div>
         </div>)}
         <div className="shadow-lg bg-white text-left my-4">
-            <div className="container mx-auto p-4"> 
+            <div className="xl:container xl:mx-auto p-4 mx-4"> 
                 <h1 className="text-xl font-medium">Replacement Conditions</h1>
                 <div className="py-3">
                     <p>&#9830;&nbsp; A free replacement cannot be created for an item which was returned and replaced once earlier.</p>

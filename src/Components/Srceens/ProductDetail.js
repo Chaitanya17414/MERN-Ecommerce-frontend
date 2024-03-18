@@ -38,11 +38,11 @@ function ProductDetail() {
     return (
         <div>
             {status === 'loading' ? <PdpShimmer /> : (
-                <div className="grid grid-cols-2 gap-4 p-6 bg-white">
+                <div className="grid grid-cols-2 gap-4 p-6 bg-white sm:block">
                     <div className="">
                         <img src={product.thumbnail} alt="ProductImage" />
                     </div>
-                    <div className="text-left">
+                    <div className="text-left sm:mt-3">
                         <div>
                             <h4 className="text-xl text-orange-500 pb-2">{product.title}&nbsp;({product.brand})</h4>
                         </div>

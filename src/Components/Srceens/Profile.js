@@ -34,7 +34,7 @@ function Profile() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='m-4 w-1/3 mx-auto my-[40px] shadow-lg p-4 rounded-lg bg-white'>
+    <form onSubmit={handleSubmit} className='m-4 w-1/3 mx-auto my-[40px] shadow-lg p-4 rounded-lg bg-white sm:w-[80%] md:w-[60%] lg:w-[50%]'>
         <h2 className='m-3 text-2xl'>User Profile</h2>
       <div>
         <input

@@ -59,7 +59,7 @@ const authSlice = createSlice({
             };
           },
     },
-    extraReducers: (builder) => {
+    extraReducers:(builder) => {
         builder
           .addCase(registerUser.pending, (state) => {
             state.registerStatus = 'pending';

@@ -25,19 +25,18 @@ function ProductsListing() {
     return ( 
         <div className="mt-10">
         <Filter />
-        <div className="container mx-auto">
+        <div className="lg:container xl:container mx-auto md:mx-7">
             {status === 'loading' ? <PlpShimmer />:(
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 sm:grid-cols-2 md:grid-cols-3 ">
                 {products?.length >0 ?(products.map((items)=>{
                     return(
-                        <div key={items.title} className="p-4 h-50 group text-left bg-white shadow-lg rounded-xl">
+                        <div key={items.title} className="p-4 xl:h-50 group text-left bg-white shadow-lg rounded-xl h-auto">
                             <Link to={`/product/${items._id}`}>
-                            <div className="w-full h-56 overflow-hidden">
+                            <div className="w-full h-56 overflow-hidden sm:h-20 md:h-20 lg:h-40">
                                  <img src={items.thumbnail} alt=""className="rounded-lg object-contain shadow-xl mx-auto w-full h-full"/>
                             </div></Link>
-                           <div className="grid grid-cols-2 gap-4">
+                           <div className="xl:grid xl:grid-cols-2 lg:gap-4 block">
                                 <div>
-                                <Link to={`/product/${items._id}`}>
                                     <h4 className="pt-3 text-sm text-neutral-500">{items.title}&nbsp;({items.brand})</h4>
                                     <p className=""><Rating
                                         initialRating={items.rating}
@@ -46,7 +45,7 @@ function ProductsListing() {
                                         fullSymbol="fa fa-star fa-1x"
                                         readonly={true}
                                         /></p>
-                                    <p className="text-stone-500 text-md font-medium "><span className="text-orange-600">&#8377;{items.price}</span></p></Link>
+                                    <p className="text-stone-500 text-md font-medium "><span className="text-orange-600">&#8377;{items.price}</span></p>
                                 </div>
                                 <div>
                                     <button className="hidden group-hover:block p-2 border border-orange-400 text-[#fb923c] 

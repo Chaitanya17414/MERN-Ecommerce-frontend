@@ -48,14 +48,14 @@ function Cart() {
                    
                 </div>
             ): (
-                <div className="mx-8">
+                <div className="mx-8 sm:mx-1">
                     <div>
-                        <div className="grid grid-cols-2 text-gray-500 text-left bg-white p-8">
+                        <div className="grid grid-cols-2 text-gray-500 text-left bg-white p-8 sm:p-3">
                             <p className="">PRODUCT</p>
                             <div className="grid grid-cols-3 gap-3">
                                 <p>PRICE</p>
                                 <p>QUANTITY</p>
-                                <p>Total</p>
+                                <p className="sm:text-right">Total</p>
                             </div>
                             
                         </div>
@@ -70,21 +70,22 @@ function Cart() {
                                         </div>
                                         <div className="align-center">
                                             <Link to={`/product/${item._id}`}>
-                                            <p className="text-md text-gray-500">{item.title}({item.brand})</p></Link>
+                                            <p className="text-md text-gray-500 ">{item.title}({item.brand})</p></Link>
                                             <button className="text-red-500 underline underline-offset-1" onClick={()=>handleRemoveItem(item)}>Remove</button>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-3 gap-3">
                                         <p className="flex">&#8377;{item.price}</p>
-                                        <div className="flex h-10">
+                                        <div className="flex h-10 sm:block sm-mt-5">
                                             <div className="flex justify-center text-left"> 
-                                                <p className="p-2 mr-2 text-md border rounded-lg bg-orange-500 text-white w-8 text-center" onClick={()=>handleDecreseQty(item)}>-</p>
+                                                <p className="p-2 mr-2 text-md border rounded-lg
+                                                 bg-orange-500 text-white w-8 text-center sm:mr-1" onClick={()=>handleDecreseQty(item)}>-</p>
                                                 <p className="p-2 border rounded-lg w-8 text-center">{item.cartQuantity}</p>
-                                                <p className="p-2 ml-2 text-md border w-8 text-center rounded-lg bg-orange-500 text-white" onClick={()=>handleIncreseQty(item)}>+</p>
+                                                <p className="p-2 ml-2 text-md border w-8 text-center rounded-lg bg-orange-500 text-white sm:ml-1" onClick={()=>handleIncreseQty(item)}>+</p>
                                             </div>
                                             
                                         </div>
-                                        <p>&#8377;{item.price * item.cartQuantity}</p>
+                                        <p className="sm:text-right">&#8377;{item.price * item.cartQuantity}</p>
                                     </div>
                                     
                                 </div>
@@ -97,9 +98,9 @@ function Cart() {
                                 hover:text-white hover:bg-gray-600" onClick={handleClearCart}>Clear Cart</button>
                         </div>
                         <div className=" basis-1/4">
-                            <div className="flex justify-between">
+                            <div className="flex justify-between font-medium">
                                 <p>SubTotal:</p>
-                                <p className="basis-1/2 text-left text-lg">&#8377;{cart.cartTotalAmount}</p>
+                                <p className="basis-1/2 text-left text-lg sm:text-right">&#8377;{cart.cartTotalAmount}</p>
                             </div>
                             <div className="">
                                 {auth._id ? 
@@ -114,7 +115,7 @@ function Cart() {
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
                                     </svg>
-                                    <p className="text-md text-">Continue Shopping</p></Link>
+                                    <p className="text-md whitespace-nowrap ">Continue Shopping</p></Link>
 
                                 </div>
                             </div>

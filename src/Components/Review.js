@@ -15,7 +15,7 @@ function Review({product,auth}) {
     const handleReview =() =>{
         var alreadyReviewed
          for (var i=0 ; i< product.reviews.length;i++) {
-            if(product.reviews[i].userID == auth._id){
+            if(product.reviews[i].userID === auth._id){
                 alreadyReviewed=true
             }
         }
@@ -51,7 +51,7 @@ function Review({product,auth}) {
                             name="comment" 
                             className="border-gray-400 border p-3 my-2 "
                             rows="4" 
-                            cols="50"value={comment} onChange={(e)=>setComment(e.target.value)}/>
+                            cols="30"value={comment} onChange={(e)=>setComment(e.target.value)}/>
                             {auth._id ?(
                                 <div className="flex justify-end mb-6">
                                     <button className="rounded-md border border-orange-500 text-orange-500 px-4 
@@ -60,7 +60,7 @@ function Review({product,auth}) {
                                     <Link to="/login">
                                         <div className="flex justify-end mb-6">
                                             <button className="rounded-md border border-orange-500 text-orange-500 px-4 
-                                                py-2 hover:bg-orange-500 hover:text-white text-center w-1/3" onClick={handleReview}>Login to review</button>
+                                                py-2 hover:bg-orange-500 hover:text-white text-center w-1/3 sm:w-1/2" onClick={handleReview}>Login to review</button>
                                         </div>
                                     </Link>
                             )}

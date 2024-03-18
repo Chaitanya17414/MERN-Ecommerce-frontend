@@ -1,9 +1,9 @@
 function PdpShimmer() {
     return (
         <div>
-            <div className=" animate-pulse grid grid-cols-2 gap-4 p-6 bg-white">
-                <div className="bg-slate-200"> </div>
-                <div className="text-left bg-white">
+            <div className=" animate-pulse grid grid-cols-2 gap-4 p-6 bg-white sm:block">
+                <div className="bg-slate-200"></div>
+                <div className="text-left bg-white sm:mt-3">
                     <div>
                         <p className="bg-slate-200 mb-2 p-1 w-1/2 rounded-xl"></p>
                     </div>

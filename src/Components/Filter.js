@@ -20,7 +20,7 @@ const Filter = () => {
   }
 
   return (
-    <div className='container flex justify-end gap-5 my-5 mx-auto'>
+    <div className='lg:container xl:container flex justify-end gap-5 my-5 mx-auto sm:justify-center md:mx-7'>
         <div >
             <select value={selectedSortBy} onChange={(e)=>handleSort(e)} className='p-3 border border-gray-500 rounded-lg bg-white'>
                  <option  value="popular">Popular</option>

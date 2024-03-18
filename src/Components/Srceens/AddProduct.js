@@ -45,7 +45,7 @@ function AddProduct() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='m-4 w-1/2 mx-auto my-[40px] shadow-lg p-4 rounded-lg bg-white'>
+    <form onSubmit={handleSubmit} className='m-4 w-1/2 mx-auto my-[40px] shadow-lg p-4 rounded-lg bg-white sm:w-[80%] md:w-[70%] lg:w-[60%]'>
         <h2 className='m-3 text-2xl'>Add New Product</h2>
       <div>
         <input

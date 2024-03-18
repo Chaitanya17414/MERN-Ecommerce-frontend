@@ -1,6 +1,6 @@
  function Shimmer() {
     return (
-        <div className="container mx-auto">
+        <div className="xl:container xl:mx-auto mx-2">
             <div className="border border-blue-300 shadow rounded-md p-4  w-full my-4">
                 <div className="animate-pulse flex space-x-4">
                     <div className="flex-1 space-y-6 py-1">
