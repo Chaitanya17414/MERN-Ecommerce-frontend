@@ -1,6 +1,18 @@
 import {Link,Outlet} from "react-router-dom"
+import { useSelector } from 'react-redux';
+import { useEffect} from 'react';
+import {useNavigate} from "react-router-dom"
 
 function Admin() {
+    const navigate = useNavigate()
+    const auth = useSelector((store) => store.users.auth)
+
+    useEffect(()=>{
+        if(!auth.isAdmin) {
+            navigate("/login")
+        }
+      },[auth.isAdmin,navigate])
+
     return ( 
         <div className="grid grid-cols-4 xl:container xl:mx-auto sm:block md:block mx-4">
             <div className="col-span-1 border-r-2 h-screen my-7 bg-red-100 sticky top-[90px] sm:h-auto sm:top-[50px] md:h-auto md:top-[50px]">

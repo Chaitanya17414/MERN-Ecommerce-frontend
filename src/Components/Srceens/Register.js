@@ -15,7 +15,7 @@ function Register() {
 
   useEffect(()=>{
     if(auth._id) {
-        navigate("/")
+        navigate("/login")
     }
   },[auth._id,navigate])
 

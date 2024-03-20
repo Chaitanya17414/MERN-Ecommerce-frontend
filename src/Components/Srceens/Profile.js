@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import {useNavigate} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import {updateUser} from '../Redux/Actions/actions';
@@ -14,6 +14,12 @@ function Profile() {
     email: auth.email,
     password: "",
   });
+
+  useEffect(()=>{
+    if(!auth._id) {
+        navigate("/login")
+    }
+  },[auth._id,navigate])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
