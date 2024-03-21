@@ -11,7 +11,6 @@ function Review({product,auth}) {
 
     const dispatch = useDispatch() 
    
-    console.log(product.reviews)
     const handleReview =() =>{
         var alreadyReviewed
          for (var i=0 ; i< product.reviews.length;i++) {

@@ -1,33 +1,41 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsById } from "../Redux/Actions/actions";
-import { useEffect } from "react";
-import { addItem, decereaseCart } from "../Redux/Slices/cartSlice"
+import { useEffect,useState } from "react";
+import { addItem, decreaseCart } from "../Redux/Slices/cartSlice"
 import Review from "../Review";
 import PdpShimmer from "../Shimmers/PdpShimmer";
 function ProductDetail() {
     const params = useParams();
     const productId = params.id;
     const dispatch = useDispatch();
-
+    const [cartQuantity, setCartQuantity] = useState(1);
     const { product, status, error } = useSelector((state) => state.product.productById);
     const { cartItems } = useSelector((state) => state.cart);
     const auth = useSelector((state) => state.users.auth);
 
     const itemIndex = cartItems.findIndex((item) => item._id === product._id);
-    const cartQuantity = itemIndex > 1 ? cartItems[itemIndex].cartQuantity : 1;
-
+    
     useEffect(() => {
         if (productId) {
             dispatch(fetchProductsById(productId));
+         }
+        if (itemIndex >= 0) {
+            setCartQuantity(cartItems[itemIndex].cartQuantity);
+        } else {
+            setCartQuantity(1);
         }
     }, [dispatch, productId]);
 
 
     const handleDecreseQty = (cartItem) => {
-        dispatch(decereaseCart(cartItem))
+        if (cartQuantity > 1) {
+          setCartQuantity(cartQuantity - 1);
+            dispatch(decreaseCart(cartItem));
+        }
     }
     const handleIncreseQty = (cartItem) => {
+        setCartQuantity(cartQuantity + 1);
         dispatch(addItem(cartItem))
     }
 
@@ -65,9 +73,9 @@ function ProductDetail() {
                                     <div className="grid grid-cols-2 gap-9">
                                         <div className="flex h-10">
                                             <div className="flex justify-center text-left">
-                                                <button className="p-2 mr-2 text-md border rounded-lg bg-orange-500 text-white text-center w-16" disabled={cartQuantity === 1} onClick={() => handleDecreseQty(product)}>-</button>
+                                                <button type="button" className="p-2 mr-2 text-md border rounded-lg bg-orange-500 text-white text-center w-16" disabled={cartQuantity === 1} onClick={() => handleDecreseQty(product)}>-</button>
                                                 <p className="p-2 border rounded-lg w-16 text-center">{cartQuantity}</p>
-                                                <button className="p-2 ml-2 text-md w-16 text-center border rounded-lg bg-orange-500 text-white" onClick={() => handleIncreseQty(product)}>+</button>
+                                                <button  type="button" className="p-2 ml-2 text-md w-16 text-center border rounded-lg bg-orange-500 text-white" onClick={() => handleIncreseQty(product)}>+</button>
                                             </div>
 
                                         </div>

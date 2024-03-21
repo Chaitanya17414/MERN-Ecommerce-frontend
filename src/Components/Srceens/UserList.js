@@ -7,7 +7,7 @@ function UserList() {
     const dispatch = useDispatch()
     const auth = useSelector((store) => store.users.allUsers)
     const user = useSelector((store) => store.users.auth)
-    console.log(auth.users)
+    
     useEffect(() => {
         dispatch(fetchAllUsers())
     }, [dispatch])

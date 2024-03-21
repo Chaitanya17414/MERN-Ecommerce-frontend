@@ -195,7 +195,6 @@ export const updateUser = createAsyncThunk(
             userId:userId
           });
           localStorage.setItem("token",token.data)
-          console.log(token)
           return token.data
       }
       catch (err) {

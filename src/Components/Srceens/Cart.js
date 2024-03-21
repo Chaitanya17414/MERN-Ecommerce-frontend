@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link} from "react-router-dom";
-import { addItem, clearCart, decereaseCart, getTotal, removeItem } from "../Redux/Slices/cartSlice";
+import { addItem, clearCart, decreaseCart, getTotal, removeItem } from "../Redux/Slices/cartSlice";
 import { useEffect } from "react";
 import PayButton from "../PayButton";
 
@@ -18,7 +18,7 @@ function Cart() {
         dispatch(removeItem(cartItem))
     }
     const handleDecreseQty = (cartItem) =>{
-        dispatch(decereaseCart(cartItem))
+        dispatch(decreaseCart(cartItem))
     }
     const handleIncreseQty = (cartItem) =>{
         dispatch(addItem(cartItem))
